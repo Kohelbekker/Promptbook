@@ -16,5 +16,7 @@ export const POST = async (req, res) => {
     await newPrompt.save();
 
     return new Response(JSON.stringify({ newPrompt }), { status: 201 });
-  } catch (error) {}
+  } catch (error) {
+    return new Response('Failed to create new Prompt record', { status: 500 });
+  }
 };

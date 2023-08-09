@@ -11,6 +11,9 @@ List of used packages:
 
 ## TODO
 
+[x] Add favicon
+[x] Fix minor errors in console
+[] Add visual loading state to the 'Sign In' proccess
 [] Implement search:
 
 - by tag
