@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Nav = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -56,7 +56,7 @@ const Nav = () => {
               />
             </Link>
           </div>
-        ) : (
+        ) : status !== 'loading' ? (
           <>
             {providers &&
               Object.values(providers).map((provider) => (
@@ -70,6 +70,14 @@ const Nav = () => {
                 </button>
               ))}
           </>
+        ) : (
+          <Image
+            src="/assets/icons/loader.svg"
+            width={35}
+            height={35}
+            className="rounded-full"
+            alt="loading"
+          />
         )}
       </div>
 
@@ -115,7 +123,7 @@ const Nav = () => {
               </div>
             )}
           </div>
-        ) : (
+        ) : status !== 'loading' ? (
           <>
             {providers &&
               Object.values(providers).map((provider) => (
@@ -125,10 +133,20 @@ const Nav = () => {
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
                 >
-                  SignIn
+                  Sign In
                 </button>
               ))}
           </>
+        ) : (
+          <div className="flex">
+            <Image
+              src="/assets/icons/loader.svg"
+              width={25}
+              height={25}
+              className="rounded-full"
+              alt="loading"
+            />
+          </div>
         )}
       </div>
     </nav>

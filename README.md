@@ -1,27 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Promptbook
 
-This is education project to learn and apply Next.js key features.
+Promptbook is the best place to find or post efficient prompts to boost your productivity while using ChatGPT.
 
-List of used packages:
+This is education project to learn and apply Next.js key features. It includes both FE part and Backend API.
+
+## Technical details
+
+List of used npm packages:
 
 - bcrypt
 - mongodb
-- mongoose
 - next-auth
+- mongoose
+
+`MongoDB Cloud` used to store Prompts data
+
+Also projects deployed on Vercel and can be found here - https://promptbook-zeta.vercel.app/
 
 ## TODO
 
-[x] Add favicon
-[x] Fix minor errors in console
-[] Add visual loading state to the 'Sign In' proccess
-[] Implement search:
-
-- by tag
-- by keyword
-- by username
-
-[] Implement click on tag
-[] Implement ability to view other profiles
+- [x] Add favicon
+- [x] Fix minor errors in console
+- [x] Add visual loading state to the 'Sign In' proccess
+- [] Implement search:
+  - by tag
+  - by keyword
+  - by username
+- [] Implement click on tag
+- [] Implement ability to view other profiles
 
 ## Getting Started
 
