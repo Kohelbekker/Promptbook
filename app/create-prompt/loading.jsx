@@ -1,8 +1,6 @@
 import Image from 'next/image';
 
 const Loading = () => {
-  console.log('LOADING!');
-
   return (
     <div className="w-full flex-center">
       <Image

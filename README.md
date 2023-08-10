@@ -22,7 +22,7 @@ Also projects deployed on Vercel and can be found here - https://promptbook-zeta
 - [x] Add favicon
 - [x] Fix minor errors in console
 - [x] Add visual loading state to the 'Sign In' proccess
-- [] Restrict access to all routes except `/` to unauthroized users
+- [x] Restrict access to all routes except `/` to unauthroized users
 - [] Implement search:
   - by tag
   - by keyword
