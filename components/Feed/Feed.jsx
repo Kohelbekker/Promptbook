@@ -22,26 +22,6 @@ const Feed = () => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
 
-  const handleSearchChange = (e) => {
-    const searchValue = e.target.value;
-    setSearchText(searchValue);
-
-    if (searchValue === '') return;
-
-    const searchResult = posts.filter((post) => {
-      return (
-        post?.creator.username.includes(searchValue) ||
-        post?.tag.includes(searchValue)
-      );
-    });
-
-    setFilteredPosts(searchResult);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch('/api/prompt');
@@ -52,6 +32,33 @@ const Feed = () => {
 
     fetchPosts();
   }, []);
+
+  useEffect(() => {
+    if (searchText === '') return;
+
+    const timeoutId = setTimeout(() => {
+      const searchResult = posts.filter((post) => {
+        return (
+          post?.creator.username.toLowerCase().includes(searchText) ||
+          post?.tag.toLowerCase().includes(searchText) ||
+          post?.prompt.toLowerCase().includes(searchText)
+        );
+      });
+
+      setFilteredPosts(searchResult);
+    }, 800);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchText]);
+
+  const handleSearchChange = (e) => {
+    const searchValue = e.target.value;
+    setSearchText(searchValue);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <section className="feed">
